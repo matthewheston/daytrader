@@ -1,0 +1,31 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>day trader</title>
+
+  <link rel="stylesheet" href="/static/styles.css">
+
+</head>
+
+<body>
+  <p>
+  Your total: <span id="myTotal">100</span>
+  </p>
+  <p>
+  Current round: <span id="currentRound">1</span>
+  </p>
+  <p>
+  <label for="personalRate">Personal Rate:</label>
+  <input type="text" name="personalRate" id="personalRate">
+  <label for="groupRate">Group Rate:</label>
+  <input type="text" name="groupRate" id="groupRate">
+  <input type="button" id="submitButton" value="Submit" disabled>
+  <span id="waiting">The game cannot start until 3 players have joined</span>
+  </p>
+    <script type="text/javascript" src="/static/scripts/jquery-3.1.1.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/static/scripts/daytrader.js"></script>
+</body>
