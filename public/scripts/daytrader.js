@@ -24,9 +24,9 @@ $(function() {
     data["personalRate"] = $("#personalRate").val();
     data["groupRate"] = $("#groupRate").val();
     if (parseInt(data["personalRate"]) + parseInt(data["groupRate"]) != 10) {
-      $("body").append("<p>Personal and group contributions must add up to 10</p>");
+      $("body").append('<p class="disposable">Personal and group contributions must add up to 10</p>');
     } else {
-      console.log("everything cool!");
+      $(".disposable").remove();
       data["room"] = room;
       data["player"] = player;
 
@@ -46,7 +46,7 @@ $(function() {
     console.log(individualContribution);
     console.log(groupContribution);
     $("#myTotal").text(parseInt(currentVal + individualContribution + groupContribution));
-    $("body").append("<p>You made $" + parseInt(individualContribution + groupContribution) + " this round.");
+    $("body").append('<p class="disposable">You made $' + parseInt(individualContribution + groupContribution) + " this round.");
     $("#submitButton").prop("disabled", false);
   });
 });
