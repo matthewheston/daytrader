@@ -12,6 +12,7 @@ $(function() {
   var socket = io();
   var room = getParameterByName("room");
   var player = getParameterByName("player");
+  var chatType = "";
   socket.emit("room", room);
 
   socket.on("room-full", function() {
@@ -38,6 +39,14 @@ $(function() {
 
   socket.on("increment-round", function(round) {
     $("#currentRound").text(round);
+    if ((round-1) % 3 == 0) {
+      $("#chat-container").show();
+      $("#submitButton").prop("disabled", true);
+      setTimeout(function() {
+        $("#chat-container").hide();
+        $("#submitButton").prop("disabled", false);
+      }, 120000);
+    }
   });
   socket.on("group-total", function(groupTotal) {
     currentVal = parseInt($("#myTotal").text()); 
@@ -48,5 +57,16 @@ $(function() {
     $("#myTotal").text(parseInt(currentVal + individualContribution + groupContribution));
     $("body").append('<p class="disposable">You made $' + parseInt(individualContribution + groupContribution) + " this round.");
     $("#submitButton").prop("disabled", false);
+  });
+
+  // chat
+  $('form').submit(function(){
+    socket.emit('chat-message', {'chat': chatType + $('#m').val(), 'room': room});
+    $('#m').val('');
+    return false;
+  });
+  socket.on('chat-message', function(msg){
+    $("#chat-box").scrollTop(document.getElementById("chat-box").scrollHeight);
+    $('#messages').append($('<li>').text(msg));
   });
 });

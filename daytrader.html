@@ -24,6 +24,12 @@
   <input type="text" name="groupRate" id="groupRate">
   <input type="button" id="submitButton" value="Submit" disabled>
   <span id="waiting">The game cannot start until 3 players have joined</span>
+  <div id="chat-container" style="display:none">
+    <div id="chat-box"><ol id="messages"></ol></div>
+    <form action="">
+      <input id="m" autocomplete="off" /><button>Send</button>
+    </form>
+  </div>
   </p>
     <script type="text/javascript" src="/static/scripts/jquery-3.1.1.js"></script>
     <script src="/socket.io/socket.io.js"></script>

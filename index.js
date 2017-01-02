@@ -14,12 +14,12 @@ keysToSubmissions = {};
 function handleSubmission(room, io) {
   console.log("3 submissions");
   keysToRound[room] += 1;
-  io.in(room).emit("increment-round", keysToRound[room]);
   var groupTotal = 0;
   for (i=0; i<keysToSubmissions[room].length; i++){
     groupTotal += parseInt(keysToSubmissions[room][i]["groupRate"]);
   }
   io.in(room).emit("group-total", Math.round(groupTotal/3));
+  io.in(room).emit("increment-round", keysToRound[room]);
 }
 
 app.get('/', function(req, res){
@@ -52,6 +52,9 @@ io.on('connection', function(socket){
       handleSubmission(data["room"], io);
       keysToSubmissions[data["room"]] = [];
     }
+  });
+  socket.on('chat-message', function(msg){
+    io.sockets.in(msg["room"]).emit('chat-message', msg["chat"]);
   });
 });
 
