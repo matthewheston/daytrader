@@ -41,8 +41,8 @@ $(function() {
   });
   socket.on("group-total", function(groupTotal) {
     currentVal = parseInt($("#myTotal").text()); 
-    individualContribution = parseInt($("#personalRate").val());
-    groupContribution = 2 * groupTotal;
+    individualContribution = 2 * parseInt($("#personalRate").val());
+    groupContribution = 3 * groupTotal;
     console.log(individualContribution);
     console.log(groupContribution);
     $("#myTotal").text(parseInt(currentVal + individualContribution + groupContribution));
