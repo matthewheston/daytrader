@@ -23,15 +23,17 @@ $(function() {
     var data = {};
     data["personalRate"] = $("#personalRate").val();
     data["groupRate"] = $("#groupRate").val();
-    data["room"] = room;
-    data["player"] = player;
+    if (parseInt(data["personalRate"]) + parseInt(data["groupRate"]) != 10) {
+      $("body").append("<p>Personal and group contributions must add up to 10</p>");
+    } else {
+      console.log("everything cool!");
+      data["room"] = room;
+      data["player"] = player;
 
-    var currentAmount = parseInt($("#myTotal").text());
-    var newAmount = currentAmount - data["personalRate"] - data["groupRate"];
-    $("#submitButton").prop("disabled", true);
-    $("#myTotal").text(newAmount);
+      $("#submitButton").prop("disabled", true);
 
-    socket.emit("submit", data);
+      socket.emit("submit", data);
+    }
   });
 
   socket.on("increment-round", function(round) {

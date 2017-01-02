@@ -45,6 +45,7 @@ io.on('connection', function(socket){
     console.log(keysToTotalPlayers);
   });
   socket.on("submit", function(data) {
+    console.log("a submission");
     keysToSubmissions[data["room"]].push(data);
     console.log(keysToSubmissions);
     if (keysToSubmissions[data["room"]].length == 3) {
