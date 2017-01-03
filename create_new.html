@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>day trader</title>
+
+  <link rel="stylesheet" href="/static/styles.css">
+
+</head>
+
+<body>
+  <span class="welcome">
+    <p>Enter your name and click "Create new session."</p>
+
+    <label for="sessionName">
+      Session Name (This is what people will see when they're looking for your session.):
+    </label>
+      <input type="text" id="sessionName"></input>
+    <label for="playerName">
+      Your Name (This is the name people see when you chat with them.):
+    </label>
+      <input type="text" id="playerName"></input>
+      <a href = "#" id="create-room">Create new session</a>
+    </span>
+
+    </span>
+
+  <script type="text/javascript" src="/static/scripts/jquery-3.1.1.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="text/javascript" src="/static/scripts/welcome.js"></script>
+
+</body>
+</html>
