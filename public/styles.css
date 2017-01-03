@@ -1,3 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+html, body{
+  font-family: 'Lato', sans-serif;
+  width: 100%;
+  height: 100%;
+  background-color: #E8E8EE;
+}
+
+ul {
+  list-style-position: inside;
+  float: left;
+}
+
+#staging-area ul {
+  width: 80%;
+  height: 80%;
+}
+
+div {
+  display: inline-block;
+  width: 30%;
+  margin: 1em;
+  min-height: 70%;
+  border: 2px solid black;
+  vertical-align: top;
+  padding: 5px 5px 5px 5px;
+}
+
+#chat-container {
+  text-align: center;
+}
+
+#chat-box {
+  width: 90%;
+  height: 300px;
+  border: 1px solid black;
+  text-align: left;
+  overflow: scroll;
+}
+
+#staging-area {
+  height: 70%;
+}
+
+#chats {
+  overflow-y: auto;
+}
+
+#m {
+  width: 70%;
+}
+
+ol {
+  list-style-type: none;
+  margin-left: .5em;
+  margin-right: .5em;
+  padding: 0;
+}
+
+#create-room, #join-room {
+  font-size: 1em;
+  text-decoration: underline;
+}
+
+.playerType {
+  font-size: 150%;
+}
+  
+.welcome {
+  height: 200px;
+  width: 450px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -225px;
+}
+
 input {
   display: block;
+}
+
+#m {
+  display: inline;
 }
