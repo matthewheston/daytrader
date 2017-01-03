@@ -12,7 +12,7 @@ $(function() {
   var socket = io();
   var room = getParameterByName("room");
   var player = getParameterByName("player");
-  var chatType = "";
+  var chatType = player + ": ";
   socket.emit("room", room);
 
   socket.on("room-full", function() {
