@@ -47,6 +47,11 @@ $(function() {
         $("#submitButton").prop("disabled", false);
       }, 120000);
     }
+    if (round > 10) {
+      var finalScore = $("#myTotal").text();
+      $("body").empty();
+      $("body").append("<p>You have completed the exercise. Your final score was " + finalScore);
+    }
   });
   socket.on("group-total", function(groupTotal) {
     currentVal = parseInt($("#myTotal").text()); 
