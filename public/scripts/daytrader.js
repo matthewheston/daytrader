@@ -60,7 +60,7 @@ $(function() {
     console.log(individualContribution);
     console.log(groupContribution);
     $("#myTotal").text(parseInt(currentVal + individualContribution + groupContribution));
-    $("body").append('<p class="disposable">You made $' + parseInt(individualContribution + groupContribution) + " this round.");
+    $("#game").append('<p class="disposable">You made $' + parseInt(individualContribution + groupContribution) + " this round.");
     $("#submitButton").prop("disabled", false);
   });
 
